@@ -2,8 +2,10 @@
 #include <iostream>
 #include <string>
 
+#include "Cnf.h"
+#include "Pfs.h"
+#include "SymRes.h"
 #include "common.h"
-// #include "Cnf.h"
 
 int main(int argc, char* argv[]) {
   // use my set
