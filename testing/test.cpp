@@ -2,10 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "Cnf.h"
-#include "Pfs.h"
-#include "SymRes.h"
-#include "common.h"
+#include "front_end.h"
 
 int main(int argc, char* argv[]) {
   // use my set
