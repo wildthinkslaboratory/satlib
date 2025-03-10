@@ -1,2 +1,0 @@
-SUBDIRS = Makefile.random_rockets_augmented Makefile.random_rockets Makefile.rockets_regular Makefile.rockets_augmented Makefile.rockets_nonext Makefile.rockets_augmented_nonext Makefile.satellite Makefile.butchered-satellite
-include $(SMAKE) 
