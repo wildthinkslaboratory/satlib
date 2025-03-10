@@ -1,0 +1,14 @@
+TARGET = rockets_nonext
+TARGETTYPE = App
+
+SRCS = rockets_nonext.cpp
+
+include $(SMAKE)
+
+install : $(BuildDir)/$(TARGET)
+	mv $(BuildDir)/$(TARGET) ../../../bin
+
+all : $(BuildDir)/$(TARGET) install
+
+
+

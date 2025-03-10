@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.3.1)
 
 project(satlib)
 
+add_subdirectory(generators)
 add_subdirectory(common)
 add_subdirectory(clause_set)
 add_subdirectory(front_end)
-add_subdirectory(testing)
 add_subdirectory(pbchaff)

@@ -1,0 +1,14 @@
+TARGET = butchered-satellite
+TARGETTYPE = App
+
+SRCS = butchered-satellite2.cpp
+
+include $(SMAKE)
+
+install : $(BuildDir)/$(TARGET)
+	mv $(BuildDir)/$(TARGET) ../../../bin
+
+all : $(BuildDir)/$(TARGET) install
+
+
+

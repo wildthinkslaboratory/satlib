@@ -1,0 +1,14 @@
+TARGET = satellite
+TARGETTYPE = App
+
+SRCS = satellite_state.cpp
+
+include $(SMAKE)
+
+install : $(BuildDir)/$(TARGET)
+	mv $(BuildDir)/$(TARGET) ../../../bin
+
+all : $(BuildDir)/$(TARGET) install
+
+
+

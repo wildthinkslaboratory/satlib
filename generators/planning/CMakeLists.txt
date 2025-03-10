@@ -1,0 +1,8 @@
+add_executable(random_rockets_augmented random_rockets_augmented.cpp)
+add_executable(random_rockets_nonext random_rockets_nonext.cpp)
+add_executable(random_action rockets_action.cpp)
+add_executable(rockets_augmented_nonext rockets_augmented_nonext.cpp)
+add_executable(rockets_augmented rockets_augmented.cpp)
+add_executable(rockets_nonext rockets_nonext.cpp)
+add_executable(rockets_regular rockets_regular.cpp)
+add_executable(rockets_state rockets_state.cpp)
