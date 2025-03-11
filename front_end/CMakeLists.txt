@@ -1,4 +1,11 @@
 
+# this builds grammar.cpp, grammar.hpp and tokens.cpp and puts them
+# in the correct directories, but for some reason it can't find
+# grammar.cpp 
+# 
+# Once they're built I commented them out, then cmake/make seems to 
+# be able to compile them.  Will have to figure this out later.
+#
 # find_package(BISON)
 # BISON_TARGET(grammar src/grammar.y src/grammar.cpp
 #              DEFINES_FILE include/grammar.hpp)
