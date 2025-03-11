@@ -7,7 +7,7 @@
 #define yacc_debug 0
 
 int yylex(void);
-int yyerror(char *,...);
+int yyerror(char[] ,...);
   
 zap::InputTheory mainTheory;
 
@@ -16,7 +16,7 @@ zap::InputTheory mainTheory;
 %union
 {
   int			    i;
-  char			  * s;
+  char			    *s;
   zap::InputAtom		  * ia;
   zap::InputLiteral		  * il;
   zap::InputClause		  * ic;

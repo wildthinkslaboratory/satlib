@@ -124,7 +124,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "grammar.y"
+#line 1 "src/grammar.y"
 
 
 #define T_NULL 0
@@ -134,7 +134,7 @@
 #define yacc_debug 0
 
 int yylex(void);
-int yyerror(char *,...);
+int yyerror(char[] ,...);
   
 zap::InputTheory mainTheory;
 
@@ -160,10 +160,10 @@ zap::InputTheory mainTheory;
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 17 "grammar.y"
+#line 17 "src/grammar.y"
 {
   int			    i;
-  char			  * s;
+  char			    *s;
   zap::InputAtom		  * ia;
   zap::InputLiteral		  * il;
   zap::InputClause		  * ic;
@@ -183,7 +183,7 @@ typedef union YYSTYPE
   vector<zap::InputClause>	  * icv;
 }
 /* Line 193 of yacc.c.  */
-#line 187 "grammar.cpp"
+#line 187 "src/grammar.cpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -196,7 +196,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 200 "grammar.cpp"
+#line 200 "src/grammar.cpp"
 
 #ifdef short
 # undef short
@@ -1467,7 +1467,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 68 "grammar.y"
+#line 68 "src/grammar.y"
     {
 	    mainTheory.m_domainSpecs = *(yyvsp[(1) - (4)].ds);
 	    mainTheory.m_predicateSpecs = *(yyvsp[(2) - (4)].ps);
@@ -1478,160 +1478,160 @@ yyreduce:
 	    delete (yyvsp[(2) - (4)].ps);
 	    delete (yyvsp[(3) - (4)].gs);
 	    delete (yyvsp[(4) - (4)].icv);
-	  }
+	  ;}
     break;
 
   case 3:
-#line 82 "grammar.y"
+#line 82 "src/grammar.y"
     {
 					(yyval.ds) = new zap::DomainSpec;
-		  }
+		  ;}
     break;
 
   case 4:
-#line 86 "grammar.y"
+#line 86 "src/grammar.y"
     {
 		    (yyval.ds) = (yyvsp[(2) - (2)].ds);
 		    (*(yyval.ds))[(yyvsp[(1) - (2)].ds1)->first] = (yyvsp[(1) - (2)].ds1)->second;
 		    delete (yyvsp[(1) - (2)].ds1);
-		  }
+		  ;}
     break;
 
   case 5:
-#line 94 "grammar.y"
+#line 94 "src/grammar.y"
     {
 		    (yyval.ds1) = new pair<string,int>((yyvsp[(2) - (4)].s),atoi((yyvsp[(3) - (4)].s)));
 		    free((yyvsp[(2) - (4)].s));
 		    free((yyvsp[(3) - (4)].s));
-		  }
+		  ;}
     break;
 
   case 6:
-#line 102 "grammar.y"
+#line 102 "src/grammar.y"
     {
 					(yyval.ps) = new zap::PredicateSpec;
-		  }
+		  ;}
     break;
 
   case 7:
-#line 106 "grammar.y"
+#line 106 "src/grammar.y"
     {
 		    (yyval.ps) = (yyvsp[(2) - (2)].ps);
 		    (*(yyval.ps))[(yyvsp[(1) - (2)].ps1)->first] = (yyvsp[(1) - (2)].ps1)->second;
 		    delete (yyvsp[(1) - (2)].ps1);
-		  }
+		  ;}
     break;
 
   case 8:
-#line 114 "grammar.y"
+#line 114 "src/grammar.y"
     {
 		    (yyval.ps1) = new pair<string,vector<string> >((yyvsp[(2) - (6)].s),*(yyvsp[(4) - (6)].sl));
 		    free((yyvsp[(2) - (6)].s));
 		    delete (yyvsp[(4) - (6)].sl);
-		  }
+		  ;}
     break;
 
   case 9:
-#line 122 "grammar.y"
+#line 122 "src/grammar.y"
     {
 		    (yyval.sl) = new vector<string>;
-		  }
+		  ;}
     break;
 
   case 10:
-#line 126 "grammar.y"
+#line 126 "src/grammar.y"
     {
 		    (yyval.sl) = (yyvsp[(2) - (2)].sl);
 		    (yyval.sl)->push_back(string((yyvsp[(1) - (2)].s)));
 		    free((yyvsp[(1) - (2)].s));
-		  }
+		  ;}
     break;
 
   case 11:
-#line 134 "grammar.y"
+#line 134 "src/grammar.y"
     {
 		    (yyval.pssv) = new vector<pair<string,string> >;
 		    (yyval.pssv)->push_back(*(yyvsp[(1) - (1)].pss));
 		    delete (yyvsp[(1) - (1)].pss);
-		  }
+		  ;}
     break;
 
   case 12:
-#line 140 "grammar.y"
+#line 140 "src/grammar.y"
     {
 		    (yyval.pssv) = (yyvsp[(3) - (3)].pssv);
 		    (yyval.pssv)->push_back(*(yyvsp[(1) - (3)].pss));
 		    delete (yyvsp[(1) - (3)].pss);
-                  }
+                  ;}
     break;
 
   case 13:
-#line 148 "grammar.y"
+#line 148 "src/grammar.y"
     {
 					(yyval.gs) = new zap::GroupSpec;
-		  }
+		  ;}
     break;
 
   case 14:
-#line 152 "grammar.y"
+#line 152 "src/grammar.y"
     {
 		    (yyval.gs) = (yyvsp[(2) - (2)].gs);
 		    (*(yyval.gs))[(yyvsp[(1) - (2)].gs1)->first] = (yyvsp[(1) - (2)].gs1)->second;
 		    delete (yyvsp[(1) - (2)].gs1);
-		  }
+		  ;}
     break;
 
   case 15:
-#line 160 "grammar.y"
+#line 160 "src/grammar.y"
     {
 				(yyval.gs1) = new pair<string,zap::igroup>((yyvsp[(2) - (4)].s),*(yyvsp[(3) - (4)].ig));
 				free((yyvsp[(2) - (4)].s));
 				delete (yyvsp[(3) - (4)].ig);
-			  }
+			  ;}
     break;
 
   case 16:
-#line 166 "grammar.y"
+#line 166 "src/grammar.y"
     {
 				zap::igroup i;
 				i.m_ic = *(yyvsp[(3) - (3)].ic);
 				(yyval.gs1) = new pair<string,zap::igroup>((yyvsp[(2) - (3)].s),i);
 				free((yyvsp[(2) - (3)].s));
 				delete (yyvsp[(3) - (3)].ic);
-			  }
+			  ;}
     break;
 
   case 17:
-#line 174 "grammar.y"
+#line 174 "src/grammar.y"
     {
 				zap::igroup i;
 				i.domains = *(yyvsp[(3) - (4)].sl);
 				(yyval.gs1) = new pair<string,zap::igroup>((yyvsp[(2) - (4)].s),i);
 				free((yyvsp[(2) - (4)].s));
 				delete (yyvsp[(3) - (4)].sl);
-			  }
+			  ;}
     break;
 
   case 18:
-#line 184 "grammar.y"
+#line 184 "src/grammar.y"
     {
 					(yyval.icv) = new vector<zap::InputClause>;
 		    (yyval.icv)->push_back(*(yyvsp[(1) - (1)].ic));
 		    delete (yyvsp[(1) - (1)].ic);
-		  }
+		  ;}
     break;
 
   case 19:
-#line 190 "grammar.y"
+#line 190 "src/grammar.y"
     {
 		    (yyval.icv) = (yyvsp[(1) - (2)].icv);
 		    (yyval.icv)->push_back(*(yyvsp[(2) - (2)].ic));
 		    delete (yyvsp[(2) - (2)].ic);
-		  }
+		  ;}
     break;
 
   case 20:
-#line 198 "grammar.y"
+#line 198 "src/grammar.y"
     {
   (yyval.ic) = new zap::InputClause;
   (yyval.ic)->restrictions() = (yyvsp[(4) - (4)].ic)->restrictions();
@@ -1646,282 +1646,282 @@ yyreduce:
   (yyval.ic)->existential() = *(yyvsp[(2) - (4)].sl);
   delete (yyvsp[(1) - (4)].sl);
   delete (yyvsp[(2) - (4)].sl);
-}
+;}
     break;
 
   case 21:
-#line 216 "grammar.y"
+#line 216 "src/grammar.y"
     {
 		    (yyval.sl) = new vector<string>;
-		  }
+		  ;}
     break;
 
   case 22:
-#line 220 "grammar.y"
+#line 220 "src/grammar.y"
     {
 		    (yyval.sl) = (yyvsp[(5) - (5)].sl);
 		    (yyval.sl)->insert((yyval.sl)->end(),(yyvsp[(3) - (5)].sl)->begin(),(yyvsp[(3) - (5)].sl)->end());
 		    delete (yyvsp[(3) - (5)].sl);
-		  }
+		  ;}
     break;
 
   case 23:
-#line 228 "grammar.y"
+#line 228 "src/grammar.y"
     {
 		    (yyval.sl) = new vector<string>;
-		  }
+		  ;}
     break;
 
   case 24:
-#line 232 "grammar.y"
+#line 232 "src/grammar.y"
     {
 		    (yyval.sl) = (yyvsp[(5) - (5)].sl);
 		    (yyval.sl)->insert((yyval.sl)->end(),(yyvsp[(3) - (5)].sl)->begin(),(yyvsp[(3) - (5)].sl)->end());
 		    delete (yyvsp[(3) - (5)].sl);
-		  }
+		  ;}
     break;
 
   case 25:
-#line 240 "grammar.y"
+#line 240 "src/grammar.y"
     {
 					(yyval.ic) = new zap::InputClause;
-		  }
+		  ;}
     break;
 
   case 26:
-#line 244 "grammar.y"
+#line 244 "src/grammar.y"
     {
 					(yyval.ic) = new zap::InputClause;
-		  }
+		  ;}
     break;
 
   case 27:
-#line 248 "grammar.y"
+#line 248 "src/grammar.y"
     {
 					(yyval.ic) = new zap::InputClause;
-		  }
+		  ;}
     break;
 
   case 28:
-#line 252 "grammar.y"
+#line 252 "src/grammar.y"
     {
 					(yyval.ic) = new zap::InputClause;
 		    (yyval.ic)->gid() = *(yyvsp[(2) - (3)].sl);
 		    delete (yyvsp[(2) - (3)].sl);
-		  }
+		  ;}
     break;
 
   case 29:
-#line 258 "grammar.y"
+#line 258 "src/grammar.y"
     {
 					(yyval.ic) = new zap::InputClause;
 		    (yyval.ic)->restrictions() = *(yyvsp[(2) - (4)].pssv);
 		    delete (yyvsp[(2) - (4)].pssv);
-		  }
+		  ;}
     break;
 
   case 30:
-#line 264 "grammar.y"
+#line 264 "src/grammar.y"
     {
 					(yyval.ic) = new zap::InputClause;
 		    if ((yyvsp[(1) - (3)].i) < 0) (yyval.ic)->op() = (yyvsp[(1) - (3)].i);
 		    else { (yyval.ic)->op() = zap::EQ; (yyval.ic)->mod() = (yyvsp[(1) - (3)].i); }
 		    (yyval.ic)->value() = (yyvsp[(2) - (3)].i);
-		  }
+		  ;}
     break;
 
   case 31:
-#line 273 "grammar.y"
+#line 273 "src/grammar.y"
     {
 		    (yyval.i) = 0;
-		  }
+		  ;}
     break;
 
   case 32:
-#line 277 "grammar.y"
+#line 277 "src/grammar.y"
     {
 		    (yyval.i) = atoi((yyvsp[(1) - (1)].s));
 		    free((yyvsp[(1) - (1)].s));
-		  }
+		  ;}
     break;
 
   case 33:
-#line 284 "grammar.y"
+#line 284 "src/grammar.y"
     {
 		    (yyval.sl) = new vector<string>;
 		    (yyval.sl)->push_back(string((yyvsp[(1) - (1)].s)));
 		    free((yyvsp[(1) - (1)].s));
-		  }
+		  ;}
     break;
 
   case 34:
-#line 290 "grammar.y"
+#line 290 "src/grammar.y"
     {
 		    (yyval.sl) = (yyvsp[(2) - (2)].sl);
 		    (yyval.sl)->push_back(string((yyvsp[(1) - (2)].s)));
 		    free((yyvsp[(1) - (2)].s));
-		  }
+		  ;}
     break;
 
   case 35:
-#line 298 "grammar.y"
+#line 298 "src/grammar.y"
     {
 				
 					(yyval.ilv) = new vector<zap::InputLiteral>;
 		    (yyval.ilv)->push_back(*(yyvsp[(1) - (1)].il));
 		    delete (yyvsp[(1) - (1)].il);
-		  }
+		  ;}
     break;
 
   case 36:
-#line 305 "grammar.y"
+#line 305 "src/grammar.y"
     {
 				
 		    (yyval.ilv) = (yyvsp[(2) - (2)].ilv);
 		    (yyval.ilv)->push_back(*(yyvsp[(1) - (2)].il));
 		    delete (yyvsp[(1) - (2)].il);
-		  }
+		  ;}
     break;
 
   case 37:
-#line 319 "grammar.y"
+#line 319 "src/grammar.y"
     {
 		    (yyval.pss) = new pair<string,string>((yyvsp[(1) - (3)].s),(yyvsp[(3) - (3)].s));
 		    free((yyvsp[(1) - (3)].s));
 		    free((yyvsp[(3) - (3)].s));
-		  }
+		  ;}
     break;
 
   case 38:
-#line 326 "grammar.y"
+#line 326 "src/grammar.y"
     {
 					(yyval.il) = new zap::InputLiteral;
 		    (yyval.il)->set_literal(true,*(yyvsp[(1) - (1)].ia));
 		    delete (yyvsp[(1) - (1)].ia);
-		  }
+		  ;}
     break;
 
   case 39:
-#line 332 "grammar.y"
+#line 332 "src/grammar.y"
     {
 					(yyval.il) = new zap::InputLiteral;
 		    int n = atoi((yyvsp[(1) - (1)].s));
 		    (yyval.il)->set_literal(n > 0,(yyvsp[(1) - (1)].s) + (n < 0));
 		    free((yyvsp[(1) - (1)].s));
-		  }
+		  ;}
     break;
 
   case 40:
-#line 339 "grammar.y"
+#line 339 "src/grammar.y"
     {
 					(yyval.il) = new zap::InputLiteral;
 		    (yyval.il)->set_literal(false,*(yyvsp[(2) - (2)].ia));
 		    delete (yyvsp[(2) - (2)].ia);
-		  }
+		  ;}
     break;
 
   case 41:
-#line 347 "grammar.y"
+#line 347 "src/grammar.y"
     {
 					(yyval.ia) = new zap::InputAtom((yyvsp[(1) - (1)].s));
 		    free((yyvsp[(1) - (1)].s));
-		  }
+		  ;}
     break;
 
   case 42:
-#line 352 "grammar.y"
+#line 352 "src/grammar.y"
     {
 					 (yyval.ia) = new zap::InputAtom((yyvsp[(1) - (4)].s),*(yyvsp[(3) - (4)].sl));
 		     delete (yyvsp[(3) - (4)].sl);
 		     free((yyvsp[(1) - (4)].s));
-		   }
+		   ;}
     break;
 
   case 43:
-#line 360 "grammar.y"
+#line 360 "src/grammar.y"
     {
 		    (yyval.sl) = new vector<string>;
-		  }
+		  ;}
     break;
 
   case 44:
-#line 364 "grammar.y"
+#line 364 "src/grammar.y"
     {
 		    (yyval.sl) = (yyvsp[(2) - (2)].sl);
 		    (yyval.sl)->push_back(string((yyvsp[(1) - (2)].s)));
 		    free((yyvsp[(1) - (2)].s));
-		  }
+		  ;}
     break;
 
   case 45:
-#line 370 "grammar.y"
+#line 370 "src/grammar.y"
     {
 		    (yyval.sl) = (yyvsp[(2) - (2)].sl);
 		    string temp("#");
 		    temp.append((yyvsp[(1) - (2)].s));
 		    (yyval.sl)->push_back(temp);
 		    free((yyvsp[(1) - (2)].s));
-		  }
+		  ;}
     break;
 
   case 46:
-#line 380 "grammar.y"
+#line 380 "src/grammar.y"
     {
 		    (yyval.ig) = (yyvsp[(2) - (3)].ig);
-		  }
+		  ;}
     break;
 
   case 47:
-#line 386 "grammar.y"
+#line 386 "src/grammar.y"
     {
 		    (yyval.ig) = new zap::igroup;
-		  }
+		  ;}
     break;
 
   case 48:
-#line 390 "grammar.y"
+#line 390 "src/grammar.y"
     {
 		    (yyval.ig) = (yyvsp[(4) - (4)].ig);
 		    (yyval.ig)->push_back(*(yyvsp[(2) - (4)].ip));
 		    delete (yyvsp[(2) - (4)].ip);
-		  }
+		  ;}
     break;
 
   case 49:
-#line 398 "grammar.y"
+#line 398 "src/grammar.y"
     {
 		    (yyval.ip) = new zap::iperm;
-		  }
+		  ;}
     break;
 
   case 50:
-#line 402 "grammar.y"
+#line 402 "src/grammar.y"
     {
 		    (yyval.ip) = (yyvsp[(4) - (4)].ip);
 		    (yyval.ip)->push_back(*(yyvsp[(2) - (4)].icyc));
 		    delete (yyvsp[(2) - (4)].icyc);
-		  }
+		  ;}
     break;
 
   case 51:
-#line 410 "grammar.y"
+#line 410 "src/grammar.y"
     {
 		    (yyval.icyc) = new zap::icycle;
-		  }
+		  ;}
     break;
 
   case 52:
-#line 414 "grammar.y"
+#line 414 "src/grammar.y"
     {
 		    (yyval.icyc) = (yyvsp[(2) - (2)].icyc);
 		    (yyval.icyc)->push_back(*(yyvsp[(1) - (2)].il));
 		    delete (yyvsp[(1) - (2)].il);
-		  }
+		  ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1925 "grammar.cpp"
+#line 1925 "src/grammar.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2135,7 +2135,7 @@ yyreturn:
 }
 
 
-#line 421 "grammar.y"
+#line 421 "src/grammar.y"
 
 
 int yyerror(char *fmt,...)

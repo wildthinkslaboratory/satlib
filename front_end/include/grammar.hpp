@@ -98,10 +98,10 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 17 "grammar.y"
+#line 17 "src/grammar.y"
 {
   int			    i;
-  char			  * s;
+  char			    *s;
   zap::InputAtom		  * ia;
   zap::InputLiteral		  * il;
   zap::InputClause		  * ic;
@@ -121,7 +121,7 @@ typedef union YYSTYPE
   vector<zap::InputClause>	  * icv;
 }
 /* Line 1529 of yacc.c.  */
-#line 125 "grammar.hpp"
+#line 125 "include/grammar.hpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

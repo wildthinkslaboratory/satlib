@@ -4,84 +4,72 @@
     dixon@cirl.uoregon.edu
 ***********************************/
 
-#ifndef   _UTILITIES_H
-#define   _UTILITIES_H
+#ifndef _UTILITIES_H
+#define _UTILITIES_H
 
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
+
 #include "Asserts.h"
 
 typedef int ClauseID;
 
-enum WhichSet {
-  LAZY,
-  PB,
-  MOD2
-};
+enum WhichSet { LAZY, PB, MOD2 };
 
-static inline void fatalError(char * message)
-{
+static inline void fatalError(const char* message) {
   std::cerr << "FATAL ERROR: " << message << std::endl;
   exit(1);
 }
 
-static inline void failure(char *file,int line,char *expression)
-{
+static inline void failure(const char* file, int line, const char* expression) {
   std::cerr << "FAILURE: Expression " << expression << " failed in file "
-	    << file << " at line "
-	    << line << "." << std::endl;
+            << file << " at line " << line << "." << std::endl;
   exit(1);
 }
 
-static inline void warning(char *file,int line,char *expression)
-{
+static inline void warning(const char* file, int line, const char* expression) {
   std::cerr << "WARNING: Expression " << expression << " failed in file "
-	    << file << " at line "
-	    << line << "." << std::endl;
+            << file << " at line " << line << "." << std::endl;
 }
 
 static inline int coinFlip() { return rand() & 1; }
 
-
 /* greatest common denominator */
-static inline int gcd(int x, int y)
-{
-  int lo,hi,rem;
+static inline int gcd(int x, int y) {
+  int lo, hi, rem;
 
   if (y == 1) return 1;
-  if (x < y) { lo = x; hi = y; }
-  else { lo = y; hi = x; }
+  if (x < y) {
+    lo = x;
+    hi = y;
+  } else {
+    lo = y;
+    hi = x;
+  }
   // error lo == 0
   ASSERT(lo != 0);
-  while ((rem = hi % lo))
-    {
-      hi = lo;
-      lo = rem;
-    }
+  while ((rem = hi % lo)) {
+    hi = lo;
+    lo = rem;
+  }
   return lo;
 }
 
 /* an approximation of number r elements subsets of an n element group */
-static inline int choose(int n, int r)
-{
+static inline int choose(int n, int r) {
   if (r <= 0 || n <= 0) return 1;
 
   double result = 1.0;
-  double num = (double) (n);
-  double den = (double) (r);
-  
-  for (size_t i=r; i >= 1; --i)
-    {
-      result *= num;
-      result /= den;
-      num -= 1.0;
-      den -= 1.0;
-    }
-  return (int) (result);
+  double num = (double)(n);
+  double den = (double)(r);
+
+  for (size_t i = r; i >= 1; --i) {
+    result *= num;
+    result /= den;
+    num -= 1.0;
+    den -= 1.0;
+  }
+  return (int)(result);
 }
 
-
-
-
 #endif
-
