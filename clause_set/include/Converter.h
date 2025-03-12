@@ -26,10 +26,12 @@ typedef vector<vector<pair<size_t, size_t> > > LiteralDomainValueMap;
 */
 
 class Converter {
+  Cnf m_cnf_conversion;
+
  public:
   virtual ~Converter() {}
   virtual ClauseSet* convert(ClauseSetType t) { return NULL; }
-  virtual const Cnf& get_cnf() { return Cnf(); }
+  virtual const Cnf& get_cnf() { return m_cnf_conversion; }
 };
 
 class PfsConverter : public Converter {

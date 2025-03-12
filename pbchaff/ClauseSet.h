@@ -90,6 +90,7 @@ class ClauseSet {
   // for use in strengthening
   StackOfLists m_overSatClauses;
   AtomValueMap m_satLits;
+  Conflict m_conflict;
 
  public:
   ClauseSet() : m_whereToGetConflict(true) {}
@@ -144,6 +145,9 @@ inline const Conflict& ClauseSet::getConflict() const {
       return m_PBClauses.getConflict();
     case MOD2:
       return m_mod2Clauses.getConflict();
+    default:
+      fatalError("bad conflict type in ClauseSet::getConflict");
+      return m_conflict;  // this returns an empty conflict
   }
 }
 
